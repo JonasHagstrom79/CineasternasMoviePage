@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+ 
+<head>
+
+    <title>CMDB Movie Club</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> <!--tog bort styleseet.css-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?
+amily=Roboto+Mono:wght@200;400;600;700&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link href="~/css/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <h1> Welcome to CMDB Movie Club!</h1>
+        <p> Search for your favorite movies</p>
+    </header>
+
+    <nav>
+        <a class="logo" asp-controller="Home" asp-action="Index"> <img src="~/Images/logo.png" alt="CMDB-Logo"></a>
+        <ul class="navigation">
+            <li><a class="current" asp-controller="Home" asp-action="Index">CMDB</a></li>
+        </ul>
+        <form class="search" asp-action="SearchResult" method="get" asp-controller="Search">
+            <!--ändrade asp-c från Home -->
+            <input class="searchbox" type="text" placeholder="Search Omdb here.." id="searchInput" name="searchInput" required>
+            <button class="button" type="submit" value="text">Search Omdb</button>
+        </form>
+        <form class="search" asp-action="CmdbSearchResult" method="get" asp-controller="CmdbSearch">
+           <input class="searchbox" type="text" placeholder="Search Cmdb here.." id="searchInput" name="searchInput" required>
+           <button class="button" type="submit" value="text">Search Cmdb </button>
+        </form>
+    </nav>
+    @RenderBody()
+<footer>
+
+    <p> CMDB Movie Club! 2021</p>
+    <script src="~/js/site.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--För slideshow-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><!--För slideshow-->
+</footer>
+
+</body>
+</html>

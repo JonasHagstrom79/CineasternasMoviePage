@@ -1,0 +1,69 @@
+﻿@model SearchViewModel
+    <body>
+        <a class="arrow" asp-controller="Home" asp-action="Index">
+            <img src="~/Images/arrow_back_white.svg" alt="white_back_arrow" />
+        </a>
+        <section class="flex_section_result">
+            <div class="flex2">
+                <h1>OMDB</h1>
+            </div>
+            <div class="flex_table"> 
+                <table id="x">
+                    <tr>
+                        @if (Model.Search[0].Title != "")
+                        {
+                            <th> Results: @Model.Search.Count </th>
+                        }
+                        else
+                        {
+                            <th> Results: 0 </th>
+                        }
+
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section class="flex_section_container">
+
+
+            <div class="flex">
+
+                <p> </p>
+                <table id="x">
+                    <tr class="fontsize">
+                        <th class="spacebetween">Movie</th>
+                        <th class="spacebetween">Titel</th>
+                        <th class="spacebetween_year">Year</th>
+                    </tr>
+                    @for (int i = 0; i < Model.Search.Count; i++)
+                    {
+                        <tr>
+                            <td class="spacebetween">
+
+                                <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.Search[i].imdbID.ToString()" method="get">
+                                    @if (@Model.Search[0].imdbID.ToString() != ""){ 
+                                       
+                                        <img class="moive_posters" href="" src="@Html.DisplayFor(model => model.Search[i].Poster)" onerror="this.onerror=null;this.src='https://img.icons8.com/ios-filled/100/ffffff/no-camera--v1.png';" />
+                                    }
+                                </a>
+
+                            </td>
+                            <td class="spacebetween">@Model.Search[i].Title</td>
+                            <td class="spacebetween_year">@Model.Search[i].Year</td>
+                        </tr>                  
+                    }
+                    @if (@Model.Search[0].Title == "")
+                    {
+                        <tr class="noresults">
+                            <th> No Results..</th>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </section>
+
+
+
+    </body>
+

@@ -1,0 +1,75 @@
+﻿@model MovieViewModel
+
+<body>
+    <a class="arrow" asp-controller="Home" asp-action="Index">
+        <img src="~/Images/arrow_back_white.svg" alt="back_arrow" />
+    </a>
+    <section class="text_section">
+
+        <div class="textcontainer">
+            <h1>@Html.ValueFor(model => model.Title)</h1>
+            <h2>@Html.DisplayNameFor(model => model.Plot)</h2>
+            <p>
+                @Html.ValueFor(model => model.Plot)
+            </p>
+            <h2>About</h2>
+            <p>Year: @Html.ValueFor(model => model.Released)</p>
+            <p>Released: @Html.ValueFor(model => model.Released)</p>
+            <p>Runtime: @Html.ValueFor(model => model.Runtime)</p>
+            <p>Genre: @Html.ValueFor(model => model.Genre)</p>
+            <p>Director: @Html.ValueFor(model => model.Director)</p>
+            <p>Writer: @Html.ValueFor(model => model.Writer)</p>
+            <p>Country: @Html.ValueFor(model => model.Country) </p>
+            <p>Awards: @Html.ValueFor(model => model.Awards)</p>
+            <h2>Cast</h2>
+            <p>
+                @Html.ValueFor(model => model.Actors)
+            </p>
+        </div>
+
+        <div class="flex_container">
+
+                <img class="titel-img" src="  @Html.ValueFor(model => model.Poster)" alt="Movie" onerror="this.onerror=null;this.src='https://img.icons8.com/ios-filled/100/ffffff/no-camera--v1.png';">
+
+        </div>
+
+    </section>
+
+    <section class="flex_section1">
+
+        <div class="flex_container_movie">
+            
+            <button src="~/Images/thumbsdown" accesskey="@Model.id" id="like"> Upvote</button>
+               
+        </div>
+        <div class="flex_container_movie">
+
+            <button accesskey="@Model.id" id="dislike"> Downvote</button>
+
+        </div>
+
+        <div class="flex_container_movie">
+            <a href="https://www.imdb.com/title/@(Model.id)" target="_blank">
+                <img class="rating" src="~/Images/imdb.png" alt="IMDB-logo">
+            </a>
+            <p>@Html.DisplayFor(model => model.ImdbRating)/10</p>
+        </div>
+            <div class="flex_container_movie">
+                <a href="https://www.metacritic.com/movie/@(Model.Title.Replace(" ", "-").Replace(":", "").Replace("é","e").ToLower())"  target="_blank">
+                    <img class="rating" src="~/Images/metascore.png" alt="MetaScore-logo">
+                </a>
+                <p>@Html.DisplayFor(model => model.Metascore)/100</p>
+            </div>
+                <div class="flex_container_movie">
+                    <a href="#" target="_self">
+                        <img class="rating" src="~/Images/logo.png" alt="CMDB-logo">
+                    </a>
+                    <p id="upvote">Likes @Html.DisplayFor(model => model.NumberOfLikes)</p>
+                    <p id="downvote">Dislikes @Html.DisplayFor(model => model.NumberOfDislikes)</p>
+                    </div>
+               
+
+</section>
+
+</body>
+

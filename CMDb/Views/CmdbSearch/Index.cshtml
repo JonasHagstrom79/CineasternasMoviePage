@@ -1,0 +1,74 @@
+﻿@model CmdbSearchViewModel
+<body>
+    <a class="arrow" asp-controller="Home" asp-action="Index">
+        <img src="~/Images/arrow_back_white.svg" alt="white_back_arrow" />
+    </a>
+    <section id="flex_section_result">
+        <div class="flex2">
+            <h1>CMDB</h1>
+        </div>
+        <div class="flex_table">
+            <table id="x">
+                <tr>
+                    @if (Model.TopMovieList[0].Title != "")
+                    {
+                        <th> Results: @Model.TopMovieList.Count </th>
+                    }
+                    else
+                    {
+                        <th> Results: 0 </th>
+                    }
+
+                </tr>
+                </table>
+        </div>
+
+    </section>
+    <section class="flex_section_container">
+
+
+        
+            <div class="flex">
+                <p> </p>
+                <table id="x">
+                    <tr class="fontsize">
+                        <th class="spacebetween">Movie</th>
+                        <th class="spacebetween">Titel</th>
+                        <th class="spacebetween_year">Year</th>
+                    </tr>
+                    @for (int i = 0; i < Model.TopMovieList.Count; i++)
+                    {
+                        <tr>
+                            <td class="spacebetween">
+
+                                <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[i].ImdbID.ToString()" method="get">
+                                    @if (@Model.TopMovieList[i].ImdbID.ToString() != "")
+                                    {
+                                        <img class="moive_posters_cmdb" href="" src="@Html.DisplayFor(model => model.TopMovieList[i].Poster)" onerror="this.onerror=null;this.src='https://img.icons8.com/ios-filled/100/ffffff/no-camera--v1.png';" />
+                                    }
+                                </a>
+
+                            </td>
+                            <td class="spacebetween">@Model.TopMovieList[i].Title</td>
+                            <td class="spacebetween_year">@Model.TopMovieList[i].Year</td>
+                        </tr>
+
+                    }
+
+                    @if (@Model.TopMovieList[0].Title == "")
+                    {
+                        <tr class="noresults">
+                            <th> No Results..</th>
+                        </tr>
+                    }
+
+                </table>
+                </div>
+          
+
+</section>
+
+
+
+</body>
+

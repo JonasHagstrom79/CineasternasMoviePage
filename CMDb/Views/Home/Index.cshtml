@@ -1,0 +1,259 @@
+﻿
+@model HomeViewModel
+
+<body>
+    <section class="flex_section">
+        <div class="flex">
+
+            <h2>@Html.DisplayFor(model => model.TopMovieList[0].Title)</h2>
+            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[0].ImdbID.ToString()" method="get">
+
+                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[0].Poster)" alt="Top1">
+
+            </a>
+        </div>
+        <div class="flex2">
+            <a href="https://www.imdb.com/title/@(Model.TopMovieList[0].ImdbID)" target="_blank">
+                <img class="rating" src="~/Images/imdb.png" alt="IMDB-logo">
+            </a>
+            <p>@Html.DisplayFor(model => model.TopMovieList[0].ImdbRating)/10</p>
+
+            <a href="https://www.metacritic.com/movie/@(Model.TopMovieList[0].Title.Replace(" ", "-").Replace(":", "").Replace("é","e").ToLower())" target="_blank">
+                <img class="rating" src="~/Images/metascore.png" alt="MetaScore-logo">
+            </a>
+            <p>@Html.DisplayFor(model => model.TopMovieList[0].Metascore)/100</p>
+
+
+            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[0].ImdbID.ToString()" method="get">
+
+                <img class="rating" src="~/Images/logo.png" alt="CMDB-logo">
+            </a>
+            <p>Likes @Html.DisplayFor(model => model.TopMovieList[0].NumberOfLikes)</p>
+            <p>Dislikes @Html.DisplayFor(model => model.TopMovieList[0].NumberOfDislikes)</p>
+        </div>
+        <div class="flex">
+            <h2>Plot</h2>
+            <p id="color">@Html.DisplayFor(model => model.FirstHalfPlot)<span id="dots">...</span><span id="more">@Html.DisplayFor(model => model.SecondHalfPlot) </span></p>
+            <button class="button" onclick="showPlot()" id="myBtn">Read more</button>
+
+        </div>
+    </section>
+    <section class="flex_section">
+        <div class="flex">
+            <h2>Top 2</h2>
+            <h2>@Html.DisplayFor(model => model.TopMovieList[1].Title)</h2>
+            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[1].ImdbID.ToString()" method="get">
+                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[1].Poster)" alt="Top2Movie">
+            </a>
+        </div>
+
+
+        <div class="flex">
+            <h2>Top 3</h2>
+            <h2>@Html.DisplayFor(model => model.TopMovieList[2].Title)</h2>
+            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[2].ImdbID.ToString()" method="get">
+                <img class="rating" href="" src="@Html.DisplayFor(model =>  model.TopMovieList[2].Poster)" alt="Top3Movie">
+            </a>
+        </div>
+        <div class="flex">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>
+                    <li data-target="#myCarousel" data-slide-to="5"></li>
+                    <li data-target="#myCarousel" data-slide-to="6"></li>
+                    <li data-target="#myCarousel" data-slide-to="7"></li>
+                    <li data-target="#myCarousel" data-slide-to="8"></li>
+                    <li data-target="#myCarousel" data-slide-to="9"></li>
+                    <li data-target="#myCarousel" data-slide-to="10"></li>
+                    <li data-target="#myCarousel" data-slide-to="11"></li>
+                    <li data-target="#myCarousel" data-slide-to="12"></li>
+                    <li data-target="#myCarousel" data-slide-to="13"></li>
+                    <li data-target="#myCarousel" data-slide-to="14"></li>
+                    <li data-target="#myCarousel" data-slide-to="15"></li>
+                    <li data-target="#myCarousel" data-slide-to="16"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+
+                    <div class="item active">
+                        <div class="flex_movieSlide">
+                            <h2>Top 4</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[3].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[3].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[3].Poster)" alt="Movie Top 2">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 5</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[4].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[4].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[4].Poster)" alt="Movie Top 3">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 6</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[5].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[5].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[5].Poster)" alt="Movie Top 4">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 7</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[6].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[6].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[6].Poster)" alt="Movie Top 5">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 8</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[7].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[7].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[7].Poster)" alt="Movie Top 6">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 9</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[8].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[8].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[8].Poster)" alt="Movie Top 7">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 10</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[9].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[9].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[9].Poster)" alt="Movie Top 8">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 11</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[10].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[10].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[10].Poster)" alt="Movie Top 9">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 12</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[11].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[11].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[11].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 13</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[12].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[12].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[12].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 14</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[13].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[13].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[13].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 15</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[14].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[14].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[14].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 16</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[15].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[15].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[15].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 17</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[16].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[16].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[16].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 18</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[17].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[17].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[17].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 19</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[18].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[18].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[18].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="flex_movieSlide">
+                            <h2>Top 20</h2>
+                            <h2>@Html.DisplayFor(model => model.TopMovieList[19].Title)</h2>
+                            <a asp-action="GetMovie" asp-controller="Movie" asp-route-id="@Model.TopMovieList[19].ImdbID.ToString()" method="get">
+                                <img class="rating" href="" src="@Html.DisplayFor(model => model.TopMovieList[19].Poster)" alt="Movie Top 10">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+</body>

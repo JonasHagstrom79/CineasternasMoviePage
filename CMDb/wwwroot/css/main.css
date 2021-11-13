@@ -1,0 +1,433 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    color: white;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgba(5, 0, 0, 1);
+}
+
+
+header {
+    background-image: linear-gradient(rgba(87, 112, 212, 0.233), rgba(78, 98, 180, 0.24)), url(/Images/cinema.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 60px;
+    color: rgb(219, 224, 231);
+    text-shadow: 3px 3px 3px #000000;
+    opacity: 0.9;
+}
+
+.navigation {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.searchbox {
+    font-size: 14px;
+    padding: 10px 15px;
+    color: black;
+}
+
+#dislike {
+   
+    color: #ff6666;
+    border: 1px solid #ff6666;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    background: transparent;
+    margin: 0 5px;
+
+}
+
+
+    #dislike:hover:enabled {
+        color: #ff6666;
+        background: darkred;
+        cursor: pointer;
+    }
+
+#like {
+    color: #8cff66;
+    border: 1px solid #8cff66;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    background: transparent;
+    margin: 0 5px;
+}
+
+
+    #like:hover:enabled {
+        color: #8cff66;
+        background: darkgreen;
+        cursor: pointer;
+    }
+
+.button {
+    color: #e6e6ff;
+    border: 1px solid #e6e6ff; 
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    background: transparent;
+    margin: 0 5px;
+}
+
+.button:hover {
+        color: #fff;
+        background: #00004d;
+}
+
+.flex_section_result {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+#searchresults {
+    text-align: center;
+}
+
+h2 {
+    font-size: 16px;
+}
+.headtext h1 {
+    padding: 15px;
+    margin-bottom: 50px;
+    font-size: 26px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.navigation a {
+    display: flex;
+    text-decoration: none;
+    color: rgb(219, 224, 231);
+    padding: 10px 15px;
+}
+
+.noresults {
+    font-size: 16px;
+    text-align: center;
+    padding-right: 25em;
+    padding-top: 25em;
+}
+
+
+#color {
+    color: white;
+}
+
+.navigation a:hover {
+    border: 1px solid rgb(233, 233, 233);
+    background-color: #00004d;
+}
+
+.navigation .current {
+    border: 1px solid #e6e6ff;
+    background: transparent;
+    color: #e6e6ff;
+    margin-top: 16px;
+    margin-right: 15px
+}
+
+nav {
+    background: rgb(50, 50, 55, 0.4);
+    display: flex;
+    align-items: center;
+  
+}
+
+
+
+.logo {
+    display: flex;
+    order: 1;
+    margin-left: auto;
+    width: 6%;
+}
+
+#more {
+    display: none;
+}
+
+.flex_section {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.flex_section1 {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 70px;
+}
+
+.arrow {
+    margin: 5px 0 0 5px;
+    position:relative;
+    width: 50%;
+    height: 50%;
+}
+
+.search {
+    max-width: 100%;
+    justify-content: space-between;
+    margin: auto;
+
+}
+
+.flex2 {
+    text-align: center;
+    margin-top: 25px;
+    flex: 15%;
+}
+
+.flex {
+    padding: 0px;
+    flex: 33%;
+    color: white;
+}
+
+
+    .flex h2, .flex-item h2 {
+        margin: 20px;
+    }
+
+    .flex p, .flex-item p {
+        margin: 15px 60px;
+        text-align: left;
+        font-size: 16px;
+        padding: 0;
+        color: rgb(146, 147, 149);
+    }
+
+footer {
+    background-color: rgba(50, 50, 55, 0.4);
+    text-align: center;
+    color: rgb(219, 224, 231);
+    padding: 20px;
+    margin-top: auto;
+}
+
+.text_section {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.spacebetween {
+    flex: 29%;
+    padding-bottom: 15px;
+    padding-right: 25px;
+}
+
+.spacebetween_year {
+    flex: 29%;
+    padding-bottom: 15px;
+    padding-right: 25px;
+}
+
+.fontsize {
+
+font-size: 24px;
+flex: 33%;
+}
+
+.flex_table {
+   flex-direction: row;
+   margin-left: 280px;
+   text-align: center;
+}
+
+.textcontainer {
+    flex-basis: 45%;
+    padding: 25px;
+    color: darkgray;
+}
+.flex_section_container {
+    flex-basis: 80%;
+    padding: 50px;
+    color: darkgray;
+    max-width: 100%;
+    margin: auto;
+    text-align: left;
+}
+
+
+.textcontainer h2 {
+    color: white;
+    margin: 50px 0 25px 0;
+    text-align: center;
+}
+
+.textcontainer h1 {
+        color: white;
+        margin: 50px 0 25px 0;
+        text-align: center;
+        font-size: 26px;
+}
+
+
+.titel-img {
+    width: 50%;
+    margin: auto;
+}
+
+
+.flex_container {
+    flex: 25%;  
+}
+
+.flex_container input{
+    color: black;
+}
+.flex_container_movie {
+    flex: 30%;
+    margin: 60px 0 60px 0;
+    padding: 0;
+
+    
+}
+
+.moive_posters_cmdb {
+    width: 40%;
+    height: auto;
+}
+
+.moive_posters {
+    width: 40%;
+    height: auto;
+}
+
+.rating {
+    width: 40%;
+    height: auto;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+
+    .flex p, .flex-item p {
+        text-align: center;
+    }
+
+    .body, .textcontainer, .flex_container, .text_section, .flex_section1, .flex_section_result, .flex_count, .flex_section_container, .flex {
+        flex-direction: column;
+    }
+
+    .spacebetween_year, .spacebetween_year td {
+        display: none;
+    }
+
+    .logo {
+        width: 7%;
+        block-size: auto;
+    }
+    .navigation {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    header {
+        padding: 35px;
+    }
+
+        header h1 {
+            font-size: 25px;
+        }
+
+        header p {
+            font-size: 15px;
+        }
+
+    .flex_table {
+      padding: 30px 0 20px 25px;
+      margin-left: 30px;
+      text-align: center;
+    }
+
+
+    @media only screen and (max-width: 750px) {
+
+        nav, .flex_section{
+            flex-direction: column;
+        }
+        .flex_container_movie{
+            max-width: 75%;
+        }
+        .navigation, .spacebetween {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .moive_posters_cmdb {
+            width: 100%;
+        }
+
+        .moive_posters {
+            width: 80%;
+        }
+        .flex_section img, .titel-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .flex p {
+            font-size: 14px;
+        }
+
+        .navigation a {
+            text-align: center;
+            padding: 5px;
+            border-bottom: 1px solid grey;
+        }
+
+        header {
+            padding: 20px;
+        }
+
+        .logo {
+            width: 19%;
+            margin: 0;
+            order: 0;
+            justify-content: center;
+        }
+    }
+}
